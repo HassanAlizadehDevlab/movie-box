@@ -9,8 +9,9 @@ object Apps {
 
 object Versions {
     const val gradle = "3.5.0"
+    const val kotlin_plugin = "1.3.50"
+    const val kotlin = "1.6.20"
     const val android = "7.1.2"
-    const val kotlin = "1.3.50"
 
     /* presentation */
     const val coreKtx = "1.7.0"
@@ -48,7 +49,10 @@ object Libs {
 
 object Plugins {
     const val androidApplication = "com.android.application"
+    const val java = "java-library"
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "kotlin-android"
+    const val jvm = "org.jetbrains.kotlin.jvm"
     const val kotlinKapt = "kotlin-kapt"
+
 }

@@ -2,8 +2,8 @@
 plugins {
     id("com.android.application") version Versions.android apply false
     id("com.android.library") version Versions.android apply false
-    id("org.jetbrains.kotlin.android") version Versions.kotlin apply false
-    id("org.jetbrains.kotlin.jvm") version Versions.kotlin apply false
+    id("org.jetbrains.kotlin.android") version Versions.kotlin_plugin apply false
+    id("org.jetbrains.kotlin.jvm") version "1.5.30" apply false
 }
 
 tasks.register("clean", Delete::class) {
