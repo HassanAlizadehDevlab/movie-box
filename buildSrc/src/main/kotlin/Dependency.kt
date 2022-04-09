@@ -21,6 +21,8 @@ object Versions {
 
     /* test */
     const val junit = "4.13.2"
+    const val coroutinesTest = "1.6.1"
+    const val mockk = "1.12.3"
 }
 
 object Data {
@@ -41,6 +43,8 @@ object Presentation {
 
 object UnitTest {
     const val junit = "junit:junit:${Versions.junit}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
 }
 
 object Libs {
