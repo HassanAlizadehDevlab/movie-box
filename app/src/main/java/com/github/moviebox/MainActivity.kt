@@ -9,5 +9,3 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 }
-
-// ssh-keygen -t rsa -b 4096 -C "hassan.alizadeh529@gmail.com"

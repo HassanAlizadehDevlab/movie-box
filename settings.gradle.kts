@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MovieBox"
-include ':app'
+include(":app")
