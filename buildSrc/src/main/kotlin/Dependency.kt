@@ -58,5 +58,8 @@ object Plugins {
     const val kotlinAndroid = "kotlin-android"
     const val jvm = "org.jetbrains.kotlin.jvm"
     const val kotlinKapt = "kotlin-kapt"
+}
 
+object Modules {
+    const val upcomingDomain = ":upcoming:domain"
 }
