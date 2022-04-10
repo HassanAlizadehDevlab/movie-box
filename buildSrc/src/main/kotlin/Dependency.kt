@@ -71,6 +71,11 @@ object Plugins {
     const val kotlinKapt = "kotlin-kapt"
 }
 
-object Modules {
-    const val upcomingDomain = ":upcomingmovies:domain"
+object UpcomingMoviesModule {
+    const val domain = ":upcomingmovies:domain"
+    const val data = ":upcomingmovies:data"
+}
+
+object NetworkModule {
+    const val network = ":network"
 }

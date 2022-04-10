@@ -9,7 +9,7 @@ java {
 }
 
 dependencies {
-    implementation(project(Modules.upcomingDomain))
+    implementation(project(UpcomingMoviesModule.domain))
 
     implementation(Data.retrofit)
 
