@@ -1,6 +1,8 @@
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
+    id(Plugins.kotlinKapt)
+    id(Plugins.daggerAndroid)
 }
 
 android {
@@ -38,6 +40,9 @@ dependencies {
     implementation(Presentation.appCompat)
     implementation(Presentation.material)
     implementation(Presentation.constraintLayout)
+
+    implementation(DI.dagger)
+    implementation(DI.daggerCompiler)
 
     testImplementation(UnitTest.junit)
 }

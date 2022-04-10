@@ -14,6 +14,7 @@ object Versions {
     const val android = "7.1.2"
 
     const val inject = "1"
+    const val dagger = "2.40"
 
     /* data */
     const val retrofit = "2.9.0"
@@ -39,10 +40,6 @@ object Data {
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
 }
 
-object Domain {
-
-}
-
 object Presentation {
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
@@ -62,18 +59,28 @@ object Common {
     const val inject = "javax.inject:javax.inject:${Versions.inject}"
 }
 
+object DI {
+
+    const val dagger = "com.google.dagger:hilt-android:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:hilt-android-compiler:${Versions.dagger}"
+}
+
 object Plugins {
     const val androidApplication = "com.android.application"
     const val java = "java-library"
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "kotlin-android"
     const val jvm = "org.jetbrains.kotlin.jvm"
+    const val android = "org.jetbrains.kotlin.android"
     const val kotlinKapt = "kotlin-kapt"
+    const val daggerAndroid = "dagger.hilt.android.plugin"
+    const val dagger = "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
 }
 
 object UpcomingMoviesModule {
     const val domain = ":upcomingmovies:domain"
     const val data = ":upcomingmovies:data"
+    const val dataDI = ":upcomingmovies:data_di"
 }
 
 object NetworkModule {

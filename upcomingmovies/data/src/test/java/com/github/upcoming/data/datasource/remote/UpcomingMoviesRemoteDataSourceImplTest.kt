@@ -1,6 +1,6 @@
 package com.github.upcoming.data.datasource.remote
 
-import com.github.upcoming.data.api.UpcomingMovieApi
+import com.github.upcoming.data.api.UpcomingMoviesApi
 import com.github.upcoming.data.model.remote.MovieJson
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -17,16 +17,16 @@ import java.io.IOException
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
-class UpcomingRemoteDataSourceTest {
+class UpcomingMoviesRemoteDataSourceImplTest {
 
 
-    private lateinit var upcomingMovieApi: UpcomingMovieApi
-    private lateinit var remote: UpcomingRemoteDataSource
+    private lateinit var upcomingMoviesApi: UpcomingMoviesApi
+    private lateinit var moviesRemote: UpcomingMoviesRemoteDataSource
 
     @Before
     fun setup() {
-        upcomingMovieApi = mockk()
-        remote = UpcomingRemoteDataSourceImpl(upcomingMovieApi)
+        upcomingMoviesApi = mockk()
+        moviesRemote = UpcomingMoviesRemoteDataSourceImpl(upcomingMoviesApi)
     }
 
     @After
@@ -52,21 +52,21 @@ class UpcomingRemoteDataSourceTest {
             image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
         )
         val movies = listOf(movie1, movie2)
-        coEvery { upcomingMovieApi.getMovies() } returns movies
+        coEvery { upcomingMoviesApi.getMovies() } returns movies
 
-        val result = remote.getMovies()
+        val result = moviesRemote.getMovies()
 
         assert(!result.isNullOrEmpty())
-        coVerify { upcomingMovieApi.getMovies() }
+        coVerify { upcomingMoviesApi.getMovies() }
     }
 
     @Test
     fun `when movie list is null, just return it`() = runTest {
 
         val movies = null
-        coEvery { upcomingMovieApi.getMovies() } returns movies
+        coEvery { upcomingMoviesApi.getMovies() } returns movies
 
-        val result = remote.getMovies()
+        val result = moviesRemote.getMovies()
 
         assert(result == null)
     }
@@ -74,9 +74,9 @@ class UpcomingRemoteDataSourceTest {
     @Test(expected = IOException::class)
     fun `when it gets exception, just don't catch it to be passed to upper layers`() = runTest {
 
-        coEvery { upcomingMovieApi.getMovies() } throws IOException()
+        coEvery { upcomingMoviesApi.getMovies() } throws IOException()
 
-        remote.getMovies()
+        moviesRemote.getMovies()
     }
 
 }

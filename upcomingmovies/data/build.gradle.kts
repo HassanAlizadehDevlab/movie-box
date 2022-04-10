@@ -11,6 +11,7 @@ java {
 dependencies {
     implementation(project(UpcomingMoviesModule.domain))
 
+    implementation(Common.inject)
     implementation(Data.retrofit)
 
     testImplementation(UnitTest.junit)

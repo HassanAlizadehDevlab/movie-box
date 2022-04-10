@@ -1,13 +1,13 @@
 package com.github.upcoming.domain
 
-import com.github.upcoming.domain.repository.UpcomingRepository
+import com.github.upcoming.domain.repository.UpcomingMoviesRepository
 
 class GetUpcomingUseCaseImpl(
-    private val upcomingRepository: UpcomingRepository
+    private val upcomingMoviesRepository: UpcomingMoviesRepository
 ) : GetUpcomingUseCase {
 
     override suspend fun execute(upcomingOutputBoundary: UpcomingOutputBoundary) {
-        val movies = upcomingRepository.getMovies()
+        val movies = upcomingMoviesRepository.getMovies()
         if (movies.isNullOrEmpty()) upcomingOutputBoundary.present(UpcompingResult.Empty)
         else upcomingOutputBoundary.present(UpcompingResult.Movies(movies))
     }

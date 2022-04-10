@@ -4,7 +4,7 @@ import com.github.upcoming.data.model.remote.MovieJson
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
-interface UpcomingMovieApi {
+interface UpcomingMoviesApi {
 
     @GET("/movie/upcoming")
     suspend fun getMovies(

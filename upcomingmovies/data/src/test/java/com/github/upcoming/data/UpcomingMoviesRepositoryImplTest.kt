@@ -1,8 +1,8 @@
 package com.github.upcoming.data
 
 import com.github.upcoming.data.model.remote.MovieJson
-import com.github.upcoming.data.datasource.remote.UpcomingRemoteDataSource
-import com.github.upcoming.domain.repository.UpcomingRepository
+import com.github.upcoming.data.datasource.remote.UpcomingMoviesRemoteDataSource
+import com.github.upcoming.domain.repository.UpcomingMoviesRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -18,16 +18,16 @@ import java.io.IOException
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
-class UpcomingRepositoryImplTest {
+class UpcomingMoviesRepositoryImplTest {
 
 
-    private lateinit var upcomingRemoteDataSource: UpcomingRemoteDataSource
-    private lateinit var repository: UpcomingRepository
+    private lateinit var upcomingMoviesRemoteDataSource: UpcomingMoviesRemoteDataSource
+    private lateinit var repository: UpcomingMoviesRepository
 
     @Before
     fun setup() {
-        upcomingRemoteDataSource = mockk()
-        repository = UpcomingRepositoryImpl(upcomingRemoteDataSource)
+        upcomingMoviesRemoteDataSource = mockk()
+        repository = UpcomingMoviesRepositoryImpl(upcomingMoviesRemoteDataSource)
     }
 
     @After
@@ -54,18 +54,18 @@ class UpcomingRepositoryImplTest {
         )
         val movies = listOf(movie1, movie2)
 
-        coEvery { upcomingRemoteDataSource.getMovies() } returns movies
+        coEvery { upcomingMoviesRemoteDataSource.getMovies() } returns movies
 
         val result = repository.getMovies()
 
         assert(!result.isNullOrEmpty())
-        coVerify { upcomingRemoteDataSource.getMovies() }
+        coVerify { upcomingMoviesRemoteDataSource.getMovies() }
     }
 
     @Test
     fun `when movie list is null, just return null`() = runTest {
         val movies = null
-        coEvery { upcomingRemoteDataSource.getMovies() } returns movies
+        coEvery { upcomingMoviesRemoteDataSource.getMovies() } returns movies
 
         val result = repository.getMovies()
 
@@ -75,7 +75,7 @@ class UpcomingRepositoryImplTest {
     @Test(expected = IOException::class)
     fun `when it gets exception, just don't catch it to be passed to upper layers`() = runTest {
 
-        coEvery { upcomingRemoteDataSource.getMovies() } throws IOException()
+        coEvery { upcomingMoviesRemoteDataSource.getMovies() } throws IOException()
 
         repository.getMovies()
     }
