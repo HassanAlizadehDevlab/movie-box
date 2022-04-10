@@ -13,6 +13,11 @@ object Versions {
     const val kotlin = "1.6.20"
     const val android = "7.1.2"
 
+    /* data */
+    const val retrofit = "2.9.0"
+    const val gson = "2.9.0"
+
+
     /* presentation */
     const val coreKtx = "1.7.0"
     const val appcompat = "1.4.1"
@@ -26,7 +31,8 @@ object Versions {
 }
 
 object Data {
-
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
 }
 
 object Domain {

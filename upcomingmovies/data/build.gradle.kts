@@ -11,6 +11,9 @@ java {
 dependencies {
     implementation(project(Modules.upcomingDomain))
 
+    implementation(Data.retrofit)
+    implementation(Data.gson)
+
     testImplementation(UnitTest.junit)
     testImplementation(UnitTest.coroutines)
     testImplementation(UnitTest.mockk)
