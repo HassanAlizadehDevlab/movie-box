@@ -8,7 +8,7 @@ class GetUpcomingUseCaseImpl(
 
     override suspend fun execute(upcomingOutputBoundary: UpcomingOutputBoundary) {
         val movies = upcomingRepository.getMovies()
-        if (movies.isNullOrEmpty()) upcomingOutputBoundary.present(UpCompingResult.Empty)
-        else upcomingOutputBoundary.present(UpCompingResult.Movies(movies))
+        if (movies.isNullOrEmpty()) upcomingOutputBoundary.present(UpcompingResult.Empty)
+        else upcomingOutputBoundary.present(UpcompingResult.Movies(movies))
     }
 }

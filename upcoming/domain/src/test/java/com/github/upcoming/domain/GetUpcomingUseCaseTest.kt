@@ -39,12 +39,12 @@ class GetUpcomingUseCaseTest {
     fun `when upcoming movies is a empty list, return an Empty sealed class item`() = runTest {
 
         coEvery { upcomingRepository.getMovies() } returns listOf()
-        coEvery { upcomingOutputBoundary.present(UpCompingResult.Empty) } returns Unit
+        coEvery { upcomingOutputBoundary.present(UpcompingResult.Empty) } returns Unit
 
         useCase.execute(upcomingOutputBoundary)
 
         coVerify { upcomingRepository.getMovies() }
-        coVerify { upcomingOutputBoundary.present(UpCompingResult.Empty) }
+        coVerify { upcomingOutputBoundary.present(UpcompingResult.Empty) }
     }
 
     @Test
@@ -54,11 +54,11 @@ class GetUpcomingUseCaseTest {
         val movie2 = Movie(id = 342521, title = "Keanu", releaseDate = "2016-09-14", rate = 6.04f, image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg")
         val movies = listOf(movie1, movie2)
         coEvery { upcomingRepository.getMovies() } returns movies
-        coEvery { upcomingOutputBoundary.present(UpCompingResult.Movies(movies)) } returns Unit
+        coEvery { upcomingOutputBoundary.present(UpcompingResult.Movies(movies)) } returns Unit
 
         useCase.execute(upcomingOutputBoundary)
 
-        coVerify { upcomingOutputBoundary.present(UpCompingResult.Movies(movies)) }
+        coVerify { upcomingOutputBoundary.present(UpcompingResult.Movies(movies)) }
     }
 
 }
