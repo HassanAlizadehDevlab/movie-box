@@ -14,4 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MovieBox"
 include(":app")
-include(":upcoming:data", ":upcoming:domain")
+include(":upcomingmovies:data", ":upcomingmovies:domain")

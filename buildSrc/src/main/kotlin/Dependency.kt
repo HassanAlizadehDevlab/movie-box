@@ -61,5 +61,5 @@ object Plugins {
 }
 
 object Modules {
-    const val upcomingDomain = ":upcoming:domain"
+    const val upcomingDomain = ":upcomingmovies:domain"
 }
