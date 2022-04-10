@@ -13,6 +13,8 @@ object Versions {
     const val kotlin = "1.6.20"
     const val android = "7.1.2"
 
+    const val inject = "1"
+
     /* data */
     const val retrofit = "2.9.0"
     const val gson = "2.9.0"
@@ -24,6 +26,7 @@ object Versions {
     const val material = "1.5.0"
     const val constraintLayout = "2.1.3"
 
+
     /* test */
     const val junit = "4.13.2"
     const val coroutinesTest = "1.6.1"
@@ -32,6 +35,7 @@ object Versions {
 
 object Data {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitGsonConvertor = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
 }
 
@@ -53,8 +57,9 @@ object UnitTest {
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
 }
 
-object Libs {
+object Common {
 
+    const val inject = "javax.inject:javax.inject:${Versions.inject}"
 }
 
 object Plugins {

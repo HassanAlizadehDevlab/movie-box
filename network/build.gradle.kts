@@ -9,11 +9,7 @@ java {
 }
 
 dependencies {
-    implementation(project(Modules.upcomingDomain))
-
     implementation(Data.retrofit)
-
-    testImplementation(UnitTest.junit)
-    testImplementation(UnitTest.coroutines)
-    testImplementation(UnitTest.mockk)
+    implementation(Data.retrofitGsonConvertor)
+    implementation(Data.gson)
 }
