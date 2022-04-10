@@ -1,7 +1,7 @@
 package com.github.upcoming.data
 
 import com.github.upcoming.data.model.remote.MovieJson
-import com.github.upcoming.data.remote.UpcomingRemoteDataSource
+import com.github.upcoming.data.datasource.remote.UpcomingRemoteDataSource
 import com.github.upcoming.domain.repository.UpcomingRepository
 import io.mockk.coEvery
 import io.mockk.coVerify

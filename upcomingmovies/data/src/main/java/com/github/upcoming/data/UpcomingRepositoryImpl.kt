@@ -1,6 +1,6 @@
 package com.github.upcoming.data
 
-import com.github.upcoming.data.remote.UpcomingRemoteDataSource
+import com.github.upcoming.data.datasource.remote.UpcomingRemoteDataSource
 import com.github.upcoming.domain.model.Movie
 import com.github.upcoming.domain.repository.UpcomingRepository
 

@@ -1,4 +1,4 @@
-package com.github.upcoming.data.remote
+package com.github.upcoming.data.datasource.remote
 
 import com.github.upcoming.data.model.remote.MovieJson
 
