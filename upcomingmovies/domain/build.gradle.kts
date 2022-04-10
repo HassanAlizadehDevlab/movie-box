@@ -10,6 +10,8 @@ java {
 
 dependencies {
 
+    implementation(Common.inject)
+
     testImplementation(UnitTest.junit)
     testImplementation(UnitTest.coroutines)
     testImplementation(UnitTest.mockk)

@@ -17,8 +17,6 @@ android {
 }
 
 dependencies {
-    implementation(project(NetworkModule.network))
-    implementation(project(UpcomingMoviesModule.data))
     implementation(project(UpcomingMoviesModule.domain))
 
     implementation(DI.dagger)

@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/upcomingmovies/data" />
             <option value="$PROJECT_DIR$/upcomingmovies/data_di" />
             <option value="$PROJECT_DIR$/upcomingmovies/domain" />
+            <option value="$PROJECT_DIR$/upcomingmovies/domain_di" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

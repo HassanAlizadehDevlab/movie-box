@@ -1,5 +1,5 @@
 package com.github.upcoming.domain
 
-interface GetUpcomingUseCase {
+interface GetUpcomingMoviesUseCase {
     suspend fun execute(upcomingOutputBoundary: UpcomingOutputBoundary)
 }

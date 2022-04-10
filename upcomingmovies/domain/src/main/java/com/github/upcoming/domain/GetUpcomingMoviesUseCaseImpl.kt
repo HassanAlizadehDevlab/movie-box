@@ -1,10 +1,11 @@
 package com.github.upcoming.domain
 
 import com.github.upcoming.domain.repository.UpcomingMoviesRepository
+import javax.inject.Inject
 
-class GetUpcomingUseCaseImpl(
+class GetUpcomingMoviesUseCaseImpl @Inject constructor(
     private val upcomingMoviesRepository: UpcomingMoviesRepository
-) : GetUpcomingUseCase {
+) : GetUpcomingMoviesUseCase {
 
     override suspend fun execute(upcomingOutputBoundary: UpcomingOutputBoundary) {
         val movies = upcomingMoviesRepository.getMovies()

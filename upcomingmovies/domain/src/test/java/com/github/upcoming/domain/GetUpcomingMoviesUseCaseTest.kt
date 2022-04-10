@@ -16,10 +16,10 @@ import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
-class GetUpcomingUseCaseTest {
+class GetUpcomingMoviesUseCaseTest {
 
 
-    private lateinit var useCase: GetUpcomingUseCase
+    private lateinit var useCase: GetUpcomingMoviesUseCase
     private lateinit var upcomingMoviesRepository: UpcomingMoviesRepository
     private lateinit var upcomingOutputBoundary: UpcomingOutputBoundary
 
@@ -27,7 +27,7 @@ class GetUpcomingUseCaseTest {
     fun setup() {
         upcomingMoviesRepository = mockk()
         upcomingOutputBoundary = mockk()
-        useCase = GetUpcomingUseCaseImpl(upcomingMoviesRepository)
+        useCase = GetUpcomingMoviesUseCaseImpl(upcomingMoviesRepository)
     }
 
     @After
