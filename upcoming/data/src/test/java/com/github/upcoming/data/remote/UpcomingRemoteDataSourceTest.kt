@@ -1,8 +1,7 @@
-package com.github.upcoming.data
+package com.github.upcoming.data.remote
 
+import com.github.upcoming.data.api.UpcomingMovieApi
 import com.github.upcoming.data.model.remote.MovieJson
-import com.github.upcoming.data.remote.UpcomingRemoteDataSource
-import com.github.upcoming.domain.repository.UpcomingRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -18,26 +17,26 @@ import java.io.IOException
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
-class UpcomingRepositoryImplTest {
+class UpcomingRemoteDataSourceTest {
 
 
-    private lateinit var upcomingRemoteDataSource: UpcomingRemoteDataSource
-    private lateinit var repository: UpcomingRepository
+    private lateinit var upcomingMovieApi: UpcomingMovieApi
+    private lateinit var remote: UpcomingRemoteDataSource
 
     @Before
     fun setup() {
-        upcomingRemoteDataSource = mockk()
-        repository = UpcomingRepositoryImpl(upcomingRemoteDataSource)
+        upcomingMovieApi = mockk()
+        remote = UpcomingRemoteDataSourceImpl(upcomingMovieApi)
     }
 
     @After
-    fun tearDown() {
+    fun teardown() {
         unmockkAll()
     }
 
-
     @Test
     fun `when movie list is available, just return it`() = runTest {
+
         val movie1 = MovieJson(
             id = 283552,
             title = "The Light Between Oceans",
@@ -53,21 +52,21 @@ class UpcomingRepositoryImplTest {
             image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
         )
         val movies = listOf(movie1, movie2)
+        coEvery { upcomingMovieApi.getMovies() } returns movies
 
-        coEvery { upcomingRemoteDataSource.getMovies() } returns movies
-
-        val result = repository.getMovies()
+        val result = remote.getMovies()
 
         assert(!result.isNullOrEmpty())
-        coVerify { upcomingRemoteDataSource.getMovies() }
+        coVerify { upcomingMovieApi.getMovies() }
     }
 
     @Test
-    fun `when movie list is null, just return null`() = runTest {
-        val movies = null
-        coEvery { upcomingRemoteDataSource.getMovies() } returns movies
+    fun `when movie list is null, just return it`() = runTest {
 
-        val result = repository.getMovies()
+        val movies = null
+        coEvery { upcomingMovieApi.getMovies() } returns movies
+
+        val result = remote.getMovies()
 
         assert(result == null)
     }
@@ -75,9 +74,9 @@ class UpcomingRepositoryImplTest {
     @Test(expected = IOException::class)
     fun `when it gets exception, just don't catch it to be passed to upper layers`() = runTest {
 
-        coEvery { upcomingRemoteDataSource.getMovies() } throws IOException()
+        coEvery { upcomingMovieApi.getMovies() } throws IOException()
 
-        repository.getMovies()
+        remote.getMovies()
     }
 
 }
