@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="MovieBox.app" target="11" />
       <module name="MovieBox.buildSrc" target="11" />
+      <module name="MovieBox.mainpage" target="11" />
       <module name="MovieBox.upcomingmovies.data_di" target="11" />
       <module name="MovieBox.upcomingmovies.domain_di" target="11" />
     </bytecodeTargetLevel>

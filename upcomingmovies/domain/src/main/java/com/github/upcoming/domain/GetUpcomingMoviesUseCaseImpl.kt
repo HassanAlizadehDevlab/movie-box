@@ -7,9 +7,8 @@ class GetUpcomingMoviesUseCaseImpl @Inject constructor(
     private val upcomingMoviesRepository: UpcomingMoviesRepository
 ) : GetUpcomingMoviesUseCase {
 
-    override suspend fun execute(upcomingOutputBoundary: UpcomingOutputBoundary) {
+    override suspend fun execute(): UpcomingResult {
         val movies = upcomingMoviesRepository.getMovies()
-        if (movies.isNullOrEmpty()) upcomingOutputBoundary.present(UpcompingResult.Empty)
-        else upcomingOutputBoundary.present(UpcompingResult.Movies(movies))
+        return if (movies.isNullOrEmpty()) UpcomingResult.Empty else UpcomingResult.Movies(movies)
     }
 }

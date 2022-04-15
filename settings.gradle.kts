@@ -16,3 +16,4 @@ rootProject.name = "MovieBox"
 include(":app")
 include(":upcomingmovies:data", ":upcomingmovies:domain", ":upcomingmovies:data_di", ":upcomingmovies:domain_di")
 include(":network")
+include(":mainpage")

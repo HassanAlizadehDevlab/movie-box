@@ -15,6 +15,7 @@ object Versions {
 
     const val inject = "1"
     const val dagger = "2.40"
+    const val coroutines = "1.6.1"
 
     /* data */
     const val retrofit = "2.9.0"
@@ -32,6 +33,7 @@ object Versions {
     const val junit = "4.13.2"
     const val coroutinesTest = "1.6.1"
     const val mockk = "1.12.3"
+    const val coreTesting = "2.1.0"
 }
 
 object Data {
@@ -52,15 +54,15 @@ object UnitTest {
     const val junit = "junit:junit:${Versions.junit}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val archCoreTesting   = "androidx.arch.core:core-testing:${Versions.coreTesting}"
 }
 
 object Common {
-
     const val inject = "javax.inject:javax.inject:${Versions.inject}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 }
 
 object DI {
-
     const val dagger = "com.google.dagger:hilt-android:${Versions.dagger}"
     const val daggerCompiler = "com.google.dagger:hilt-android-compiler:${Versions.dagger}"
 }
@@ -71,7 +73,6 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "kotlin-android"
     const val jvm = "org.jetbrains.kotlin.jvm"
-    const val android = "org.jetbrains.kotlin.android"
     const val kotlinKapt = "kotlin-kapt"
     const val daggerAndroid = "dagger.hilt.android.plugin"
     const val dagger = "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
@@ -79,10 +80,15 @@ object Plugins {
 
 object UpcomingMoviesModule {
     const val domain = ":upcomingmovies:domain"
+    const val domainDI = ":upcomingmovies:domain_di"
     const val data = ":upcomingmovies:data"
     const val dataDI = ":upcomingmovies:data_di"
 }
 
 object NetworkModule {
     const val network = ":network"
+}
+
+object Views {
+    const val mainPage = ":mainpage"
 }
