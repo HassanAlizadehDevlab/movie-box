@@ -1,7 +1,7 @@
 package com.github.upcoming.data
 
-import com.github.upcoming.data.model.remote.MovieJson
 import com.github.upcoming.data.datasource.remote.UpcomingMoviesRemoteDataSource
+import com.github.upcoming.data.model.remote.MovieJson
 import com.github.upcoming.domain.repository.UpcomingMoviesRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -78,6 +78,31 @@ class UpcomingMoviesRepositoryImplTest {
         coEvery { upcomingMoviesRemoteDataSource.getMovies() } throws IOException()
 
         repository.getMovies()
+    }
+
+    @Test
+    fun `on result success, check images are w780`() = runTest {
+        val movie1 = MovieJson(
+            id = 283552,
+            title = "The Light Between Oceans",
+            releaseDate = "2016-09-02",
+            rate = 4.41f,
+            image = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg"
+        )
+        val movie2 = MovieJson(
+            id = 342521,
+            title = "Keanu",
+            releaseDate = "2016-09-14",
+            rate = 6.04f,
+            image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
+        )
+        val movies = listOf(movie1, movie2)
+
+        coEvery { upcomingMoviesRemoteDataSource.getMovies() } returns movies
+
+        val result = repository.getMovies()
+
+        result!!.forEach { movie -> assert(movie.image!!.contains("w780")) }
     }
 
 }

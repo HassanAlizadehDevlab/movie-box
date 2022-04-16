@@ -11,7 +11,14 @@ class UpcomingMoviesRepositoryImpl @Inject constructor(
 
     override suspend fun getMovies(): List<Movie>? {
         return upcomingMoviesRemoteDataSource.getMovies()?.map {
-            Movie(it.id, it.title, it.releaseDate, it.rate, it.image)
+            // TODO I need a mapper.
+            Movie(it.id, it.title, it.releaseDate, it.rate, getW780Image(it.image))
         }
+    }
+
+
+    private fun getW780Image(image: String?): String? {
+        if (image.isNullOrEmpty()) return null
+        return "https://image.tmdb.org/t/p/w780$image"
     }
 }
