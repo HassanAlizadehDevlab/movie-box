@@ -17,7 +17,7 @@ object APIBuilder {
 
     private fun createRetrofit() {
         retrofit = Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3")
+            .baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

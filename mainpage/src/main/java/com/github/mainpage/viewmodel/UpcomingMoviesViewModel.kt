@@ -5,13 +5,15 @@ import androidx.lifecycle.viewModelScope
 import com.github.upcoming.domain.GetUpcomingMoviesUseCase
 import com.github.upcoming.domain.UpcomingResult
 import com.github.upcoming.domain.model.Movie
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import java.net.HttpRetryException
+import javax.inject.Inject
 
-class UpcomingMoviesViewModel(
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+@HiltViewModel
+class UpcomingMoviesViewModel @Inject constructor(
+    private val dispatcher: CoroutineDispatcher,
     private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCase
 ) : ViewModel() {
 
@@ -22,6 +24,9 @@ class UpcomingMoviesViewModel(
 
     fun loadUpcomingMovies() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+
+            // TODO Hassan: Remove me after your debugging, please.
+            throw throwable
             _upcomingMovies.value = UpcomingMoviesState.Error
         }
 
@@ -44,5 +49,4 @@ sealed class UpcomingMoviesState {
     object Empty : UpcomingMoviesState()
     object Error : UpcomingMoviesState()
     data class Movies(val movies: List<Movie>) : UpcomingMoviesState()
-
 }

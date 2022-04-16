@@ -9,6 +9,6 @@ class UpcomingMoviesRemoteDataSourceImpl @Inject constructor(
 ) : UpcomingMoviesRemoteDataSource {
 
     override suspend fun getMovies(): List<MovieJson>? {
-        return upcomingMoviesApi.getMovies()
+        return upcomingMoviesApi.getMovies().results
     }
 }

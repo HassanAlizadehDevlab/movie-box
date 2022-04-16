@@ -36,13 +36,17 @@ android {
 
 dependencies {
 
+    implementation(project(Views.mainPage))
+
     implementation(Presentation.coreKtx)
     implementation(Presentation.appCompat)
     implementation(Presentation.material)
     implementation(Presentation.constraintLayout)
+    implementation(Presentation.navigationFragmentKtx)
+    implementation(Presentation.navigationUItKtx)
 
     implementation(DI.dagger)
-    implementation(DI.daggerCompiler)
+    kapt(DI.daggerCompiler)
 
     testImplementation(UnitTest.junit)
 }

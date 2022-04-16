@@ -23,5 +23,5 @@ dependencies {
     implementation(project(UpcomingMoviesModule.domain))
 
     implementation(DI.dagger)
-    implementation(DI.daggerCompiler)
+    kapt(DI.daggerCompiler)
 }

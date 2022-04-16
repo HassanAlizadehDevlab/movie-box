@@ -6,8 +6,12 @@ import retrofit2.http.QueryMap
 
 interface UpcomingMoviesApi {
 
-    @GET("/movie/upcoming")
+    @GET("movie/upcoming")
     suspend fun getMovies(
         @QueryMap query: Map<String, String> = mapOf("api_key" to "6ad511df129fee61d0e59d96b19301e8")
-    ): List<MovieJson>?
+    ): UpcomingMoviesResponse
 }
+
+data class UpcomingMoviesResponse(
+    val results: List<MovieJson>?
+)

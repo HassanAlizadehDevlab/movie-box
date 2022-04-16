@@ -24,9 +24,12 @@ object Versions {
 
     /* presentation */
     const val coreKtx = "1.7.0"
+    const val fragmentKtx = "1.4.1"
     const val appcompat = "1.4.1"
     const val material = "1.5.0"
     const val constraintLayout = "2.1.3"
+    const val lifecycle = "2.4.1"
+    const val navigation = "2.4.2"
 
 
     /* test */
@@ -44,17 +47,20 @@ object Data {
 
 object Presentation {
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
-    const val constraintLayout =
-        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationUItKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 }
 
 object UnitTest {
     const val junit = "junit:junit:${Versions.junit}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
-    const val archCoreTesting   = "androidx.arch.core:core-testing:${Versions.coreTesting}"
+    const val archCoreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
 }
 
 object Common {

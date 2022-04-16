@@ -1,6 +1,8 @@
 plugins {
     id(Plugins.androidLibrary)
     id(Plugins.kotlinAndroid)
+    id(Plugins.kotlinKapt)
+    id(Plugins.daggerAndroid)
 }
 
 android {
@@ -13,18 +15,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    viewBinding.isEnabled = true
 }
 
 dependencies {
 
     implementation(project(UpcomingMoviesModule.domain))
+    implementation(project(UpcomingMoviesModule.data))
     implementation(project(UpcomingMoviesModule.domainDI))
+    implementation(project(UpcomingMoviesModule.dataDI))
 
+    implementation(Common.coroutines)
     implementation(Presentation.coreKtx)
     implementation(Presentation.appCompat)
     implementation(Presentation.material)
-    // implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation(Presentation.fragmentKtx)
+    implementation(Presentation.lifecycleViewModel)
+    implementation(DI.dagger)
+    kapt(DI.daggerCompiler)
 
     testImplementation(UnitTest.junit)
     testImplementation(UnitTest.coroutines)
