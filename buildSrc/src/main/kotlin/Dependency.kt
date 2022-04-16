@@ -30,6 +30,7 @@ object Versions {
     const val constraintLayout = "2.1.3"
     const val lifecycle = "2.4.1"
     const val navigation = "2.4.2"
+    const val glide = "4.13.1"
 
 
     /* test */
@@ -54,6 +55,8 @@ object Presentation {
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUItKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
 
 object UnitTest {

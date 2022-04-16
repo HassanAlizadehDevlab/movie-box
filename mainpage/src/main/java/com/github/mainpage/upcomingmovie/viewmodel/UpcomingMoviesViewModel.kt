@@ -1,4 +1,4 @@
-package com.github.mainpage.viewmodel
+package com.github.mainpage.upcomingmovie.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -35,7 +35,8 @@ class UpcomingMoviesViewModel @Inject constructor(
             withContext(Dispatchers.Main) {
                 when (result) {
                     is UpcomingResult.Empty -> _upcomingMovies.value = UpcomingMoviesState.Empty
-                    is UpcomingResult.Movies -> _upcomingMovies.value = UpcomingMoviesState.Movies(result.movies)
+                    is UpcomingResult.Movies -> _upcomingMovies.value =
+                        UpcomingMoviesState.Movies(result.movies)
                 }
             }
         }

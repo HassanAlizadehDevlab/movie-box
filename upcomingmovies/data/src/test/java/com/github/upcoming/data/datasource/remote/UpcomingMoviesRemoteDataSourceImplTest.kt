@@ -41,16 +41,16 @@ class UpcomingMoviesRemoteDataSourceImplTest {
         val movie1 = MovieJson(
             id = 283552,
             title = "The Light Between Oceans",
-            releaseDate = "2016-09-02",
-            rate = 4.41f,
-            image = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg"
+            release_date = "2016-09-02",
+            vote_average = 4.41f,
+            backdrop_path = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg"
         )
         val movie2 = MovieJson(
             id = 342521,
             title = "Keanu",
-            releaseDate = "2016-09-14",
-            rate = 6.04f,
-            image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
+            release_date = "2016-09-14",
+            vote_average = 6.04f,
+            backdrop_path = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
         )
         val movies = listOf(movie1, movie2)
         coEvery { upcomingMoviesApi.getMovies() } returns UpcomingMoviesResponse(movies)

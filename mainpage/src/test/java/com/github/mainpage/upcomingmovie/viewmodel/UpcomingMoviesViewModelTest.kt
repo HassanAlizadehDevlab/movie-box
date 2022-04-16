@@ -1,4 +1,4 @@
-package com.github.mainpage.viewmodel
+package com.github.mainpage.upcomingmovie.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.upcoming.domain.GetUpcomingMoviesUseCase

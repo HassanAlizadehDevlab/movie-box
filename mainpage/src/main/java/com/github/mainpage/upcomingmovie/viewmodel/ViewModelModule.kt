@@ -1,4 +1,4 @@
-package com.github.mainpage.viewmodel
+package com.github.mainpage.upcomingmovie.viewmodel
 
 import dagger.Module
 import dagger.Provides

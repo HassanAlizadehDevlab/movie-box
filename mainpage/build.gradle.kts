@@ -8,6 +8,10 @@ plugins {
 android {
 
     compileSdk = Apps.compileSdk
+    defaultConfig {
+        minSdk = Apps.minSdk
+        targetSdk = Apps.targetSdk
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -32,6 +36,8 @@ dependencies {
     implementation(Presentation.material)
     implementation(Presentation.fragmentKtx)
     implementation(Presentation.lifecycleViewModel)
+    implementation(Presentation.glide)
+    kapt(Presentation.glideCompiler)
     implementation(DI.dagger)
     kapt(DI.daggerCompiler)
 
