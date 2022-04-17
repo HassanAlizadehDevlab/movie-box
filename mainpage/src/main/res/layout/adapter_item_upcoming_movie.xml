@@ -19,6 +19,7 @@
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <View
+        android:id="@+id/cover"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/movies_while_cover"

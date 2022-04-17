@@ -19,8 +19,8 @@ class HorizontalItemDecorator(
 
         val top = spacing
         val bottom = spacing
-        val left = if (position == 0) 0 else spacing
-        val right = if (position == (totalItemCount - 1)) 0 else spacing
+        val left = if (position == 0) spacing * 2 else spacing
+        val right = if (position == (totalItemCount - 1)) spacing else 0
 
         outRect.set(left, top, right, bottom)
     }

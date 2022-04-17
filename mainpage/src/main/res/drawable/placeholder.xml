@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:bottom="56dp" android:drawable="@drawable/ic_outline_broken_image_24" android:left="56dp" android:right="56dp" android:top="56dp" />
+</layer-list>

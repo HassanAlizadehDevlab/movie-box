@@ -8,7 +8,7 @@ import android.util.DisplayMetrics
 import android.view.WindowManager
 import kotlin.math.roundToInt
 
-
+// TODO Moved me to another module
 private val displayMetrics: DisplayMetrics by lazy { Resources.getSystem().displayMetrics }
 
 /**

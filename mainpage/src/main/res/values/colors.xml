@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--TODO move me to a shared module-->
+    <color name="primaryColor">#263238</color>
+    <color name="primaryDarkColor">#000a12</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>

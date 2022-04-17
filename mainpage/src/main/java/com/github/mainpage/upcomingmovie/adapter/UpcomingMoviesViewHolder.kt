@@ -14,10 +14,10 @@ class UpcomingMoviesViewHolder(
 
         binding.title.text = movie.title
 
-        // TODO Add placeholder to me, please.
         Glide.with(binding.root)
             .load(movie.image)
             .placeholder(R.drawable.placeholder)
+            .error(R.drawable.placeholder)
             .into(binding.image)
     }
 }
