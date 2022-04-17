@@ -25,10 +25,19 @@ android {
 
 dependencies {
 
+    // ********************* Upcoming Movies *********************
     implementation(project(UpcomingMoviesModule.domain))
     implementation(project(UpcomingMoviesModule.data))
     implementation(project(UpcomingMoviesModule.domainDI))
     implementation(project(UpcomingMoviesModule.dataDI))
+
+    // ********************* Popular Movies *********************
+    implementation(project(PopularMoviesModule.domain))
+    implementation(project(PopularMoviesModule.data))
+    implementation(project(PopularMoviesModule.domainDI))
+    implementation(project(PopularMoviesModule.dataDI))
+
+
 
     implementation(Common.coroutines)
     implementation(Presentation.coreKtx)
