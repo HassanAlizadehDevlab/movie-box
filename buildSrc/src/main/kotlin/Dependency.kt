@@ -94,6 +94,11 @@ object UpcomingMoviesModule {
     const val dataDI = ":upcomingmovies:data_di"
 }
 
+object PopularMoviesModule {
+    const val domain = ":popularmovies:domain"
+    const val domainDI = ":popularmovies:domain_di"
+}
+
 object NetworkModule {
     const val network = ":network"
 }
