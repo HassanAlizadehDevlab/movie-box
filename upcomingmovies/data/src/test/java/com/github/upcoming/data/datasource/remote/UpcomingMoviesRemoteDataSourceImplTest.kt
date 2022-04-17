@@ -1,7 +1,7 @@
 package com.github.upcoming.data.datasource.remote
 
 import com.github.upcoming.data.api.UpcomingMoviesApi
-import com.github.upcoming.data.api.UpcomingMoviesResponse
+import com.github.upcoming.data.model.remote.UpcomingMoviesJsonResponse
 import com.github.upcoming.data.model.remote.UpcomingMovieJson
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -53,7 +53,7 @@ class UpcomingMoviesRemoteDataSourceImplTest {
             backdrop_path = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
         )
         val movies = listOf(movie1, movie2)
-        coEvery { upcomingMoviesApi.getMovies() } returns UpcomingMoviesResponse(movies)
+        coEvery { upcomingMoviesApi.getMovies() } returns UpcomingMoviesJsonResponse(movies)
 
         val result = moviesRemote.getMovies()
 
@@ -65,7 +65,7 @@ class UpcomingMoviesRemoteDataSourceImplTest {
     fun `when movie list is null, just return it`() = runTest {
 
         val movies = null
-        coEvery { upcomingMoviesApi.getMovies() } returns UpcomingMoviesResponse(movies)
+        coEvery { upcomingMoviesApi.getMovies() } returns UpcomingMoviesJsonResponse(movies)
 
         val result = moviesRemote.getMovies()
 
