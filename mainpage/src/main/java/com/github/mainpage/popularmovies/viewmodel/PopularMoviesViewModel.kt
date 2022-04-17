@@ -6,11 +6,10 @@ import com.github.popular.domain.GetPopularMoviesUseCase
 import com.github.popular.domain.PopularMoviesResult
 import com.github.popular.domain.model.PopularMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 
@@ -22,7 +21,7 @@ class PopularMoviesViewModel @Inject constructor(
     ) : ViewModel() {
 
     private val _popularMovies = MutableStateFlow<PopularMoviesState>(PopularMoviesState.Nothing)
-    val popularMovies: StateFlow<PopularMoviesState> = _popularMovies
+    val popularMovies: StateFlow<PopularMoviesState> = _popularMovies.asStateFlow()
 
 
     fun loadPopularMovies() {
@@ -34,10 +33,11 @@ class PopularMoviesViewModel @Inject constructor(
 
         viewModelScope.launch(dispatcher + exceptionHandler) {
             val result = getPopularMoviesUseCase.execute()
-            when (result) {
-                is PopularMoviesResult.Empty -> _popularMovies.value = PopularMoviesState.Empty
-                is PopularMoviesResult.Movies -> {
-                    _popularMovies.value = PopularMoviesState.Movies(result.movies)
+            withContext(Dispatchers.Main) {
+                when (result) {
+                    is PopularMoviesResult.Empty -> _popularMovies.value = PopularMoviesState.Empty
+                    is PopularMoviesResult.Movies -> _popularMovies.value =
+                        PopularMoviesState.Movies(result.movies)
                 }
             }
         }

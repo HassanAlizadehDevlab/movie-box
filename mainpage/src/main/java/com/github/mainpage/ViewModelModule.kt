@@ -1,4 +1,4 @@
-package com.github.mainpage.upcomingmovie.viewmodel
+package com.github.mainpage
 
 import dagger.Module
 import dagger.Provides
@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object UpcomingMoviesViewModelModule {
+object ViewModelModule {
 
     @Provides
     fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO

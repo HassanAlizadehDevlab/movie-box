@@ -9,6 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mainpage.databinding.MainFragmentContentBinding
+import com.github.mainpage.popularmovies.adapter.PopularMovieWidthChanger
+import com.github.mainpage.popularmovies.adapter.PopularMoviesAdapter
+import com.github.mainpage.popularmovies.viewmodel.PopularMoviesState
+import com.github.mainpage.popularmovies.viewmodel.PopularMoviesViewModel
 import com.github.mainpage.upcomingmovie.adapter.UpcomingMovieWidthChanger
 import com.github.mainpage.upcomingmovie.adapter.UpcomingMoviesAdapter
 import com.github.mainpage.upcomingmovie.viewmodel.UpcomingMoviesState
@@ -22,9 +26,12 @@ class MainPageFragment : Fragment() {
 
 
     private val upcomingViewModel: UpcomingMoviesViewModel by viewModels()
+    private val popularViewModel: PopularMoviesViewModel by viewModels()
     @Inject lateinit var upcomingMovieWidthChanger: UpcomingMovieWidthChanger
+    @Inject lateinit var popularMovieWidthChanger: PopularMovieWidthChanger
     private lateinit var binding: MainFragmentContentBinding
     private val upcomingMoviesAdapter: UpcomingMoviesAdapter by lazy { UpcomingMoviesAdapter(upcomingMovieWidthChanger) }
+    private val popularMoviesAdapter: PopularMoviesAdapter by lazy { PopularMoviesAdapter(popularMovieWidthChanger) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +52,23 @@ class MainPageFragment : Fragment() {
             }
         }
 
+        lifecycleScope.launchWhenStarted {
+
+
+            popularViewModel.popularMovies.collectLatest { popularMoviesResponse ->
+                println("Hassan: $popularMoviesResponse")
+
+                when (popularMoviesResponse) {
+                    is PopularMoviesState.Movies -> {
+                        popularMoviesAdapter.setPopularMovies(popularMoviesResponse.movies)
+                    }
+                    else -> {}
+                }
+            }
+        }
+
         upcomingViewModel.loadUpcomingMovies()
+        popularViewModel.loadPopularMovies()
     }
 
     override fun onCreateView(
@@ -60,12 +83,19 @@ class MainPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerView()
+        setupUpcomingRecyclerView()
+        setupPopularRecyclerView()
     }
 
-    private fun setupRecyclerView() {
+    private fun setupUpcomingRecyclerView() {
         binding.upcomingRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.upcomingRecyclerView.addItemDecoration(HorizontalItemDecorator(8.dpToPx))
         binding.upcomingRecyclerView.adapter = upcomingMoviesAdapter
+    }
+
+    private fun setupPopularRecyclerView() {
+        binding.popularRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.popularRecyclerView.addItemDecoration(HorizontalItemDecorator(8.dpToPx))
+        binding.popularRecyclerView.adapter = popularMoviesAdapter
     }
 }
