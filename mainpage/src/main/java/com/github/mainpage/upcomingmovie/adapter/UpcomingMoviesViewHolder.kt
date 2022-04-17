@@ -4,13 +4,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.github.mainpage.R
 import com.github.mainpage.databinding.AdapterItemUpcomingMovieBinding
-import com.github.upcoming.domain.model.Movie
+import com.github.upcoming.domain.model.UpcomingMovie
 
 class UpcomingMoviesViewHolder(
     private val binding: AdapterItemUpcomingMovieBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(movie: Movie) {
+    fun bind(movie: UpcomingMovie) {
 
         binding.title.text = movie.title
 

@@ -1,6 +1,6 @@
 package com.github.upcoming.data.api
 
-import com.github.upcoming.data.model.remote.MovieJson
+import com.github.upcoming.data.model.remote.UpcomingMovieJson
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
@@ -13,5 +13,5 @@ interface UpcomingMoviesApi {
 }
 
 data class UpcomingMoviesResponse(
-    val results: List<MovieJson>?
+    val results: List<UpcomingMovieJson>?
 )

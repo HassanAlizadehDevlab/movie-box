@@ -2,19 +2,17 @@ package com.github.mainpage.upcomingmovie.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mainpage.databinding.AdapterItemUpcomingMovieBinding
-import com.github.mainpage.physicalScreenRectPx
-import com.github.upcoming.domain.model.Movie
+import com.github.upcoming.domain.model.UpcomingMovie
 
 class UpcomingMoviesAdapter(
     private val upcomingMovieWidthChanger: UpcomingMovieWidthChanger
 ) : RecyclerView.Adapter<UpcomingMoviesViewHolder>() {
 
-    private var upcomingMovies: List<Movie> = listOf()
+    private var upcomingMovies: List<UpcomingMovie> = listOf()
 
-    fun setUpcomingMovies(movies: List<Movie>) {
+    fun setUpcomingMovies(movies: List<UpcomingMovie>) {
         upcomingMovies = movies
         notifyDataSetChanged()
     }

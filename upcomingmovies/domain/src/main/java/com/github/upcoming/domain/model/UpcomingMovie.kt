@@ -1,6 +1,6 @@
 package com.github.upcoming.domain.model
 
-data class Movie(
+data class UpcomingMovie(
     val id: Int,
     val title: String,
     val releaseDate: String?,

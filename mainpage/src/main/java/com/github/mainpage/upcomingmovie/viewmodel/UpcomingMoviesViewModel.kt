@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.upcoming.domain.GetUpcomingMoviesUseCase
 import com.github.upcoming.domain.UpcomingResult
-import com.github.upcoming.domain.model.Movie
+import com.github.upcoming.domain.model.UpcomingMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -49,5 +49,5 @@ sealed class UpcomingMoviesState {
     object Nothing : UpcomingMoviesState()
     object Empty : UpcomingMoviesState()
     object Error : UpcomingMoviesState()
-    data class Movies(val movies: List<Movie>) : UpcomingMoviesState()
+    data class Movies(val movies: List<UpcomingMovie>) : UpcomingMoviesState()
 }

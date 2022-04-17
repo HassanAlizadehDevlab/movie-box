@@ -1,6 +1,6 @@
 package com.github.upcoming.domain
 
-import com.github.upcoming.domain.model.Movie
+import com.github.upcoming.domain.model.UpcomingMovie
 import com.github.upcoming.domain.repository.UpcomingMoviesRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -48,8 +48,8 @@ class GetUpcomingMoviesUseCaseTest {
     @Test
     fun `when upcoming movies has items, return the Movies sealed class item`() = runTest {
 
-        val movie1 = Movie(id = 283552, title = "The Light Between Oceans", releaseDate = "2016-09-02", rate = 4.41f, image = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg")
-        val movie2 = Movie(id = 342521, title = "Keanu", releaseDate = "2016-09-14", rate = 6.04f, image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg")
+        val movie1 = UpcomingMovie(id = 283552, title = "The Light Between Oceans", releaseDate = "2016-09-02", rate = 4.41f, image = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg")
+        val movie2 = UpcomingMovie(id = 342521, title = "Keanu", releaseDate = "2016-09-14", rate = 6.04f, image = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg")
         val movies = listOf(movie1, movie2)
         coEvery { upcomingMoviesRepository.getMovies() } returns movies
 

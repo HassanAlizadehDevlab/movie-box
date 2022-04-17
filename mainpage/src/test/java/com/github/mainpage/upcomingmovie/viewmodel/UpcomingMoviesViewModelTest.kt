@@ -3,7 +3,7 @@ package com.github.mainpage.upcomingmovie.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.github.upcoming.domain.GetUpcomingMoviesUseCase
 import com.github.upcoming.domain.UpcomingResult
-import com.github.upcoming.domain.model.Movie
+import com.github.upcoming.domain.model.UpcomingMovie
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -64,7 +64,7 @@ class UpcomingMoviesViewModelTest {
     fun `when the result is not empty set the result state with the response in it`() {
         runTest {
             val movies = listOf(
-                Movie(
+                UpcomingMovie(
                     810693,
                     "The Bad Guys",
                     "2022-03-17",
