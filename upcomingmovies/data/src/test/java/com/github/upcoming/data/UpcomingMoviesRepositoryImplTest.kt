@@ -41,14 +41,14 @@ class UpcomingMoviesRepositoryImplTest {
         val movie1 = UpcomingMovieJson(
             id = 283552,
             title = "The Light Between Oceans",
-            poster_path = "2016-09-02",
+            release_date = "2016-09-02",
             vote_average = 4.41f,
             backdrop_path = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg"
         )
         val movie2 = UpcomingMovieJson(
             id = 342521,
             title = "Keanu",
-            poster_path = "2016-09-14",
+            release_date = "2016-09-14",
             vote_average = 6.04f,
             backdrop_path = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
         )
@@ -85,14 +85,14 @@ class UpcomingMoviesRepositoryImplTest {
         val movie1 = UpcomingMovieJson(
             id = 283552,
             title = "The Light Between Oceans",
-            poster_path = "2016-09-02",
+            release_date = "2016-09-02",
             vote_average = 4.41f,
             backdrop_path = "/pEFRzXtLmxYNjGd0XqJDHPDFKB2.jpg"
         )
         val movie2 = UpcomingMovieJson(
             id = 342521,
             title = "Keanu",
-            poster_path = "2016-09-14",
+            release_date = "2016-09-14",
             vote_average = 6.04f,
             backdrop_path = "/udU6t5xPNDLlRTxhjXqgWFFYlvO.jpg"
         )
