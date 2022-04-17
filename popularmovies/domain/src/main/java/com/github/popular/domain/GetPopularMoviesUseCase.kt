@@ -1,4 +1,4 @@
-package com.github.domain
+package com.github.popular.domain
 
 interface GetPopularMoviesUseCase {
     suspend fun execute(): PopularMoviesResult

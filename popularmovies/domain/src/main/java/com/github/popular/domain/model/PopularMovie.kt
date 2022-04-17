@@ -1,4 +1,4 @@
-package com.github.domain.model
+package com.github.popular.domain.model
 
 data class PopularMovie(
     val id: Int,

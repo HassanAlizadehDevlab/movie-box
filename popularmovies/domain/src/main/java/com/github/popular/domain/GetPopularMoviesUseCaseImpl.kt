@@ -1,6 +1,6 @@
-package com.github.domain
+package com.github.popular.domain
 
-import com.github.domain.repository.PopularMoviesRepository
+import com.github.popular.domain.repository.PopularMoviesRepository
 
 class GetPopularMoviesUseCaseImpl(
     private val popularMoviesRepository: PopularMoviesRepository

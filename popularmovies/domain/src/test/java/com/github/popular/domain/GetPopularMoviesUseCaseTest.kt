@@ -1,7 +1,7 @@
-package com.github.domain
+package com.github.popular.domain
 
-import com.github.domain.model.PopularMovie
-import com.github.domain.repository.PopularMoviesRepository
+import com.github.popular.domain.model.PopularMovie
+import com.github.popular.domain.repository.PopularMoviesRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
