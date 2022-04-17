@@ -3,8 +3,9 @@ package com.github.popularmovies.data
 import com.github.popular.domain.model.PopularMovie
 import com.github.popular.domain.repository.PopularMoviesRepository
 import com.github.popularmovies.data.datasource.remote.PopularMoviesRemoteDataSource
+import javax.inject.Inject
 
-class PopularMoviesRepositoryImpl(
+class PopularMoviesRepositoryImpl @Inject constructor(
     private val popularMoviesRemoteDataSource: PopularMoviesRemoteDataSource
 ) : PopularMoviesRepository {
 

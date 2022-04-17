@@ -1,8 +1,9 @@
 package com.github.popular.domain
 
 import com.github.popular.domain.repository.PopularMoviesRepository
+import javax.inject.Inject
 
-class GetPopularMoviesUseCaseImpl(
+class GetPopularMoviesUseCaseImpl @Inject constructor(
     private val popularMoviesRepository: PopularMoviesRepository
 ) : GetPopularMoviesUseCase {
 
