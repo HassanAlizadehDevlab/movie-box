@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object ViewModelModule {
+object UpcomingMoviesViewModelModule {
 
     @Provides
     fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO

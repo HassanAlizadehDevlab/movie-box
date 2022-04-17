@@ -5,14 +5,17 @@ import androidx.lifecycle.viewModelScope
 import com.github.popular.domain.GetPopularMoviesUseCase
 import com.github.popular.domain.PopularMoviesResult
 import com.github.popular.domain.model.PopularMovie
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class PopularMoviesViewModel(
+@HiltViewModel
+class PopularMoviesViewModel @Inject constructor(
     private val dispatcher: CoroutineDispatcher,
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
 
