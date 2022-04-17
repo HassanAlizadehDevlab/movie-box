@@ -9,19 +9,22 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mainpage.databinding.MainFragmentContentBinding
+import com.github.mainpage.upcomingmovie.adapter.UpcomingMovieWidthChanger
 import com.github.mainpage.upcomingmovie.adapter.UpcomingMoviesAdapter
 import com.github.mainpage.upcomingmovie.viewmodel.UpcomingMoviesState
 import com.github.mainpage.upcomingmovie.viewmodel.UpcomingMoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainPageFragment : Fragment() {
 
 
     private val upcomingViewModel: UpcomingMoviesViewModel by viewModels()
+    @Inject lateinit var upcomingMovieWidthChanger: UpcomingMovieWidthChanger
     private lateinit var binding: MainFragmentContentBinding
-    private val upcomingMoviesAdapter: UpcomingMoviesAdapter by lazy { UpcomingMoviesAdapter() }
+    private val upcomingMoviesAdapter: UpcomingMoviesAdapter by lazy { UpcomingMoviesAdapter(upcomingMovieWidthChanger) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,7 +8,9 @@ import com.github.mainpage.databinding.AdapterItemUpcomingMovieBinding
 import com.github.mainpage.physicalScreenRectPx
 import com.github.upcoming.domain.model.Movie
 
-class UpcomingMoviesAdapter : RecyclerView.Adapter<UpcomingMoviesViewHolder>() {
+class UpcomingMoviesAdapter(
+    private val upcomingMovieWidthChanger: UpcomingMovieWidthChanger
+) : RecyclerView.Adapter<UpcomingMoviesViewHolder>() {
 
     private var upcomingMovies: List<Movie> = listOf()
 
@@ -19,12 +21,8 @@ class UpcomingMoviesAdapter : RecyclerView.Adapter<UpcomingMoviesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingMoviesViewHolder {
         val binding = AdapterItemUpcomingMovieBinding.inflate(LayoutInflater.from(parent.context))
-        binding.root.layoutParams = ConstraintLayout.LayoutParams(
-            ConstraintLayout.LayoutParams.MATCH_PARENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT
-        ).apply {
-            width = (binding.root.context.physicalScreenRectPx.width() * 0.85).toInt()
-        }
+
+        upcomingMovieWidthChanger.changeWidth(binding)
 
         return UpcomingMoviesViewHolder(binding)
     }
