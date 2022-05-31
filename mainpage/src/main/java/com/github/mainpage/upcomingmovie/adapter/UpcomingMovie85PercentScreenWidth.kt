@@ -1,19 +1,21 @@
 package com.github.mainpage.upcomingmovie.adapter
 
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.github.mainpage.databinding.AdapterItemUpcomingMovieBinding
+import com.github.mainpage.LayoutWidthChanger
 import com.github.mainpage.physicalScreenRectPx
 import javax.inject.Inject
 
-class UpcomingMovie85PercentScreenWidth @Inject constructor() : UpcomingMovieWidthChanger {
+class UpcomingMovie85PercentScreenWidth @Inject constructor(
 
-    override fun changeWidth(binding: AdapterItemUpcomingMovieBinding) {
+) : LayoutWidthChanger<ConstraintLayout> {
+
+    override fun change(layout: ConstraintLayout) {
         val lp = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.MATCH_PARENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT
         )
 
-        lp.width = (binding.root.context.physicalScreenRectPx.width() * 0.85).toInt()
-        binding.root.layoutParams = lp
+        lp.width = (layout.context.physicalScreenRectPx.width() * 0.85).toInt()
+        layout.layoutParams = lp
     }
 }

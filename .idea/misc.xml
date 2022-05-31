@@ -7,7 +7,7 @@
         <entry key="mainpage/src/main/res/drawable/ic_outline_broken_image_24.xml" value="0.1" />
         <entry key="mainpage/src/main/res/drawable/movies_while_cover.xml" value="0.137" />
         <entry key="mainpage/src/main/res/drawable/placeholder.xml" value="0.1" />
-        <entry key="mainpage/src/main/res/layout/adapter_item_popular_movie.xml" value="0.25833333333333336" />
+        <entry key="mainpage/src/main/res/layout/adapter_item_popular_movie.xml" value="0.1" />
         <entry key="mainpage/src/main/res/layout/adapter_item_upcoming_movie.xml" value="0.1" />
         <entry key="mainpage/src/main/res/layout/main_fragment_content.xml" value="0.28832397460937503" />
       </map>

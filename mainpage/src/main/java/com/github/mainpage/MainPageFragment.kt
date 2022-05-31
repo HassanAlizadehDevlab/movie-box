@@ -9,17 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mainpage.databinding.MainFragmentContentBinding
-import com.github.mainpage.popularmovies.adapter.PopularMovieWidthChanger
+import com.github.mainpage.popularmovies.adapter.PopularMovie35PercentScreenWidth
 import com.github.mainpage.popularmovies.adapter.PopularMoviesAdapter
 import com.github.mainpage.popularmovies.viewmodel.PopularMoviesState
 import com.github.mainpage.popularmovies.viewmodel.PopularMoviesViewModel
-import com.github.mainpage.upcomingmovie.adapter.UpcomingMovieWidthChanger
+import com.github.mainpage.upcomingmovie.adapter.UpcomingMovie85PercentScreenWidth
 import com.github.mainpage.upcomingmovie.adapter.UpcomingMoviesAdapter
 import com.github.mainpage.upcomingmovie.viewmodel.UpcomingMoviesState
 import com.github.mainpage.upcomingmovie.viewmodel.UpcomingMoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainPageFragment : Fragment() {
@@ -27,11 +26,10 @@ class MainPageFragment : Fragment() {
 
     private val upcomingViewModel: UpcomingMoviesViewModel by viewModels()
     private val popularViewModel: PopularMoviesViewModel by viewModels()
-    @Inject lateinit var upcomingMovieWidthChanger: UpcomingMovieWidthChanger
-    @Inject lateinit var popularMovieWidthChanger: PopularMovieWidthChanger
     private lateinit var binding: MainFragmentContentBinding
-    private val upcomingMoviesAdapter: UpcomingMoviesAdapter by lazy { UpcomingMoviesAdapter(upcomingMovieWidthChanger) }
-    private val popularMoviesAdapter: PopularMoviesAdapter by lazy { PopularMoviesAdapter(popularMovieWidthChanger) }
+    //
+    private val upcomingMoviesAdapter: UpcomingMoviesAdapter by lazy { UpcomingMoviesAdapter(UpcomingMovie85PercentScreenWidth()) }
+    private val popularMoviesAdapter: PopularMoviesAdapter by lazy { PopularMoviesAdapter(PopularMovie35PercentScreenWidth()) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
